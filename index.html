@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Mágica de Rapunzel</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="tower-decoration"></div>
+    <div class="calculator-container">
+        <div class="lantern"></div>
+        <div class="lantern"></div>
+        <div class="lantern"></div>
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+        <h1 class="title">Calculadora Mágica</h1>
+        <div class="calculator">
+            <div class="display-container">
+                <i class="fas fa-sun sun-icon"></i>
+                <input type="text" id="display" readonly>
+            </div>
+            <div class="buttons">
+                <button onclick="clearDisplay()">C</button>
+                <button class="operator" onclick="appendToDisplay('/')">/</button>
+                <button class="operator" onclick="appendToDisplay('*')">×</button>
+                <button class="operator" onclick="appendToDisplay('-')">-</button>
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button class="operator" onclick="appendToDisplay('+')">+</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('.')">.</button>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+<!-- Mantener todo igual solo cambiar esta línea -->
+<button class="equals" onclick="checkSecretCode()" style="grid-row: span 2">=</button>
+                <button onclick="appendToDisplay('0')" style="grid-column: span 2">0</button>
+                <button onclick="appendToDisplay('00')">00</button>
+            </div>
+            <div class="hair-decoration">
+                <div class="flower"></div>
+                <div class="flower"></div>
+                <div class="flower"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

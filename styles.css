@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Tangerine:wght@400;700&display=swap');
+
+body {
+    background: url('imagen/gallery_princess_rapunzel_7_32c78aed.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(148, 0, 211, 0.6), rgba(255, 140, 0, 0.4));
+    z-index: -1;
+}
+
+.calculator-container {
+    position: relative;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(255, 223, 0, 0.7), 0 0 60px rgba(255, 105, 180, 0.4);
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 40px rgba(255, 223, 0, 0.7), 0 0 60px rgba(255, 105, 180, 0.4); }
+    100% { box-shadow: 0 0 50px rgba(255, 105, 180, 0.7), 0 0 70px rgba(255, 223, 0, 0.4); }
+}
+
+.tower-decoration {
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 200px;
+    background: linear-gradient(to right, #8B4513, #CD853F);
+    border-radius: 20px 10px 10px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.tower-decoration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 20px,
+        rgba(255, 255, 255, 0.1) 20px,
+        rgba(255, 255, 255, 0.1) 40px
+    );
+}
+
+.tower-decoration::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 30px;
+    background: rgba(255, 223, 0, 0.7);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.7);
+}
+
+.calculator {
+    background: linear-gradient(145deg, #FFE1FF, #FFB6C1);
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(255,255,255,0.8);
+    width: 320px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: shine 4s infinite linear;
+}
+
+@keyframes shine {
+    0% { transform: translate(0, 0); opacity: 0.6; }
+    25% { transform: translate(320px, 0); opacity: 0.8; }
+    50% { transform: translate(320px, 400px); opacity: 0.6; }
+    75% { transform: translate(0, 400px); opacity: 0.8; }
+    100% { transform: translate(0, 0); opacity: 0.6; }
+}
+
+.lantern {
+    position: absolute;
+    width: 25px;
+    height: 35px;
+    background: radial-gradient(#ffd700, #ffaa00);
+    border-radius: 50% 50% 5px 5px;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.lantern::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.lantern::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 8px;
+    background: #fff;
+}
+
+.lantern:nth-child(1) { top: -15px; left: 20px; animation-delay: 0s; }
+.lantern:nth-child(2) { top: -15px; right: 20px; animation-delay: 0.5s; }
+.lantern:nth-child(3) { bottom: -15px; left: 50%; animation-delay: 1s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #DA70D6;
+    border-radius: 15px;
+    font-size: 2em;
+    text-align: right;
+    padding: 10px;
+    color: #8B008B;
+    font-family: 'Tangerine', cursive;
+    font-weight: bold;
+    box-shadow: inset 0 0 10px rgba(218, 112, 214, 0.3);
+    transition: all 0.3s ease;
+}
+
+#display:focus {
+    box-shadow: inset 0 0 15px rgba(218, 112, 214, 0.5);
+    border-color: #9932CC;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    position: relative;
+}
+
+.buttons::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: -1;
+    border-radius: 20px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #DDA0DD, #DA70D6);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), inset 0 -2px 5px rgba(0,0,0,0.1), inset 0 2px 5px rgba(255,255,255,0.5);
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+button:hover::before {
+    opacity: 1;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(145deg, #DA70D6, #DDA0DD);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3), inset 0 -2px 5px rgba(0,0,0,0.1), inset 0 2px 5px rgba(255,255,255,0.5);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 -1px 3px rgba(0,0,0,0.1), inset 0 1px 3px rgba(255,255,255,0.5);
+}
+
+.operator {
+    background: linear-gradient(145deg, #FFD700, #FFA500);
+    color: #8B008B;
+}
+
+.operator:hover {
+    background: linear-gradient(145deg, #FFA500, #FFD700);
+}
+
+.equals {
+    background: linear-gradient(145deg, #9932CC, #8B008B);
+    color: white;
+    border-radius: 20px;
+}
+
+.equals:hover {
+    background: linear-gradient(145deg, #8B008B, #9932CC);
+}
+
+.hair-decoration {
+    position: absolute;
+    width: 120%;
+    height: 15px;
+    background: linear-gradient(to right, #FFD700, #FFA500, #FFD700);
+    bottom: -25px;
+    left: -10%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    animation: wave 5s infinite ease-in-out;
+    overflow: hidden;
+}
+
+.hair-decoration::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.3) 10px,
+        rgba(255, 255, 255, 0.3) 20px
+    );
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateX(0) scaleX(1); }
+    50% { transform: translateX(10px) scaleX(0.95); }
+}
+
+/* Flores decorativas */
+.calculator-container::before,
+.calculator-container::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #FF69B4 30%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.calculator-container::before {
+    top: -20px;
+    left: -20px;
+    box-shadow: 
+        15px 15px 0 -5px #FF69B4,
+        30px 5px 0 -8px #FF69B4;
+}
+
+.calculator-container::after {
+    bottom: -20px;
+    right: -20px;
+    box-shadow: 
+        -15px -15px 0 -5px #FF69B4,
+        -30px -5px 0 -8px #FF69B4;
+}
+
+/* Título */
+.title {
+    font-family: 'Tangerine', cursive;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+    letter-spacing: 2px;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+/* Estrellas */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: transparent;
+    opacity: 0.7;
+}
+
+.star:before, .star:after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to right, #FFD700, #FFA500);
+    border-radius: 50%;
+}
+
+.star:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(45deg);
+}
+
+.star:after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+}
+
+.star:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star:nth-child(2) {
+    top: 15%;
+    right: 25%;
+    animation: twinkle 3s infinite alternate 0.5s;
+}
+
+.star:nth-child(3) {
+    bottom: 15%;
+    left: 15%;
+    animation: twinkle 2.5s infinite alternate 1s;
+}
+
+.star:nth-child(4) {
+    bottom: 20%;
+    right: 20%;
+    animation: twinkle 3.5s infinite alternate 1.5s;
+}
+
+.star:nth-child(5) {
+    top: 50%;
+    left: 50%;
+    animation: twinkle 4s infinite alternate 2s;
+}
+
+@keyframes twinkle {
+    0% { transform: scale(0.8); opacity: 0.3; }
+    100% { transform: scale(1.2); opacity: 0.9; }
+}
+
+/* Display container */
+.display-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.sun-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFA500;
+    font-size: 1.5em;
+    z-index: 2;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Flores */
+.flower {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #FF69B4;
+    border-radius: 50%;
+    bottom: -5px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+}
+
+.flower:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FF69B4;
+    border-radius: 50%;
+    left: -7px;
+    top: -3px;
+}
+
+.flower:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FF69B4;
+    border-radius: 50%;
+    right: -7px;
+    top: -3px;
+}
+
+.flower:nth-child(1) {
+    left: 20%;
+}
+
+.flower:nth-child(2) {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.flower:nth-child(3) {
+    right: 20%;
+}
+
+/* Media Queries para diseño responsive */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 2em;
+    }
+    .calculator {
+        width: 280px;
+        padding: 15px;
+    }
+    
+    button {
+        padding: 15px;
+        font-size: 1em;
+    }
+    
+    #display {
+        height: 50px;
+        font-size: 1.8em;
+    }
+    
+    .tower-decoration {
+        left: -60px;
+        width: 40px;
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+    
+    .sun-icon {
+        font-size: 1.2em;
+    }
+    .calculator {
+        width: 260px;
+        padding: 10px;
+    }
+    
+    button {
+        padding: 12px;
+        font-size: 0.9em;
+    }
+    
+    #display {
+        height: 45px;
+        font-size: 1.6em;
+        margin-bottom: 15px;
+    }
+    
+    .buttons {
+        gap: 8px;
+    }
+    
+    .tower-decoration {
+        display: none;
+    }
+    
+    .calculator-container {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .calculator {
+        width: 260px;
+        padding: 10px;
+    }
+    
+    button {
+        padding: 10px;
+    }
+}
